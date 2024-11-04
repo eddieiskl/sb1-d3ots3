@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="Go Live">
+    <ActionItem ios.position="right" android.position="actionBar">
+      <Label text="&#xf03d;" class="fas" />
+    </ActionItem>
+  </ActionBar>
+
+  <StackLayout class="p-4">
+    <Label text="Start Streaming" class="text-2xl font-bold mb-4" />
+    
+    <TextField hint="Stream Title" text="{{ streamTitle }}" class="mb-4 p-4 border rounded" />
+    
+    <Label text="Select Category" class="font-bold mb-2" />
+    <ListView items="{{ categories }}" class="mb-4">
+      <ListView.itemTemplate>
+        <Label text="{{ name }}" class="p-2" />
+      </ListView.itemTemplate>
+    </ListView>
+
+    <Button text="Go Live" tap="{{ startStream }}" class="bg-purple-600 text-white p-4 rounded" />
+  </StackLayout>
+</Page>

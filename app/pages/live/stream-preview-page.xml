@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="{{ streamTitle }}">
+    <NavigationButton text="Back" android.systemIcon="ic_menu_back" />
+    <ActionItem ios.position="right" android.position="actionBar">
+      <Label text="&#xf00d;" class="fas" tap="{{ endStream }}" />
+    </ActionItem>
+  </ActionBar>
+
+  <GridLayout rows="*, auto">
+    <!-- Stream Preview -->
+    <GridLayout row="0" class="bg-black">
+      <Label text="Stream Preview" class="text-white text-center" />
+    </GridLayout>
+
+    <!-- Stream Controls -->
+    <GridLayout row="1" columns="*, *, *" class="p-4 bg-gray-100">
+      <Button col="0" text="Camera" tap="{{ toggleCamera }}" class="bg-purple-600 text-white" />
+      <Button col="1" text="Mic" tap="{{ toggleMic }}" class="bg-purple-600 text-white" />
+      <Button col="2" text="End" tap="{{ endStream }}" class="bg-red-600 text-white" />
+    </GridLayout>
+  </GridLayout>
+</Page>

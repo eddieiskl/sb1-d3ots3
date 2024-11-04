@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Frame defaultPage="pages/browse/browse-page">
+  <BottomNavigation>
+    <TabStrip>
+      <TabStripItem>
+        <Label text="Browse" />
+        <Image src="font://&#xf002;" class="fas t-36" />
+      </TabStripItem>
+      <TabStripItem>
+        <Label text="Live" />
+        <Image src="font://&#xf03d;" class="fas t-36" />
+      </TabStripItem>
+      <TabStripItem>
+        <Label text="Profile" />
+        <Image src="font://&#xf007;" class="fas t-36" />
+      </TabStripItem>
+    </TabStrip>
+
+    <TabContentItem>
+      <Frame defaultPage="pages/browse/browse-page" />
+    </TabContentItem>
+    <TabContentItem>
+      <Frame defaultPage="pages/live/live-page" />
+    </TabContentItem>
+    <TabContentItem>
+      <Frame defaultPage="pages/profile/profile-page" />
+    </TabContentItem>
+  </BottomNavigation>
+</Frame>

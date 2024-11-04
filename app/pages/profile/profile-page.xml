@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="Profile">
+    <ActionItem ios.position="right" android.position="actionBar">
+      <Label text="&#xf013;" class="fas" />
+    </ActionItem>
+  </ActionBar>
+
+  <ScrollView>
+    <StackLayout class="p-4">
+      <Image src="{{ profileImage }}" class="h-32 w-32 rounded-full mx-auto" />
+      <Label text="{{ username }}" class="text-2xl font-bold text-center mt-4" />
+      <Label text="{{ bio }}" class="text-gray-600 text-center mt-2" />
+
+      <GridLayout columns="*, *" class="mt-4">
+        <StackLayout col="0" class="text-center">
+          <Label text="{{ followersCount }}" class="font-bold" />
+          <Label text="Followers" class="text-gray-600" />
+        </StackLayout>
+        <StackLayout col="1" class="text-center">
+          <Label text="{{ followingCount }}" class="font-bold" />
+          <Label text="Following" class="text-gray-600" />
+        </StackLayout>
+      </GridLayout>
+
+      <TabView class="mt-4">
+        <TabViewItem title="Listings">
+          <GridLayout>
+            <ListView items="{{ listings }}">
+              <ListView.itemTemplate>
+                <GridLayout columns="auto, *" class="p-2">
+                  <Image col="0" src="{{ image }}" class="w-20 h-20 rounded" />
+                  <StackLayout col="1" class="ml-2">
+                    <Label text="{{ title }}" class="font-bold" />
+                    <Label text="{{ price }}" class="text-purple-600" />
+                  </StackLayout>
+                </GridLayout>
+              </ListView.itemTemplate>
+            </ListView>
+          </GridLayout>
+        </TabViewItem>
+        <TabViewItem title="Reviews">
+          <GridLayout>
+            <ListView items="{{ reviews }}">
+              <ListView.itemTemplate>
+                <StackLayout class="p-2">
+                  <Label text="{{ rating }}" class="text-yellow-500" />
+                  <Label text="{{ comment }}" class="text-gray-600" />
+                </StackLayout>
+              </ListView.itemTemplate>
+            </ListView>
+          </GridLayout>
+        </TabViewItem>
+      </TabView>
+    </StackLayout>
+  </ScrollView>
+</Page>

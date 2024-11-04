@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="Browse">
+    <ActionItem ios.position="right" android.position="actionBar">
+      <Label text="&#xf002;" class="fas" />
+    </ActionItem>
+  </ActionBar>
+
+  <GridLayout rows="auto, *">
+    <!-- Categories -->
+    <ScrollView row="0" orientation="horizontal" class="p-2">
+      <StackLayout orientation="horizontal">
+        <Label text="All" class="px-4 py-2 mx-1 bg-purple-600 text-white rounded-full" tap="{{ onCategoryTap }}" />
+        <Label text="Trading Cards" class="px-4 py-2 mx-1 bg-gray-200 rounded-full" tap="{{ onCategoryTap }}" />
+        <Label text="Collectibles" class="px-4 py-2 mx-1 bg-gray-200 rounded-full" tap="{{ onCategoryTap }}" />
+        <Label text="Toys" class="px-4 py-2 mx-1 bg-gray-200 rounded-full" tap="{{ onCategoryTap }}" />
+      </StackLayout>
+    </ScrollView>
+
+    <!-- Live Streams Grid -->
+    <GridLayout row="1" columns="*, *" rows="auto, auto, auto" class="p-2">
+      <Repeater items="{{ streams }}" colSpan="2">
+        <Repeater.itemTemplate>
+          <GridLayout rows="200, auto" class="m-1 bg-white rounded-lg" tap="{{ onStreamTap }}">
+            <Image row="0" src="{{ thumbnailUrl }}" class="rounded-t-lg" stretch="aspectFill" />
+            <GridLayout row="1" rows="auto, auto" columns="auto, *" class="p-2">
+              <Image row="0" col="0" src="{{ sellerImage }}" class="rounded-full w-10 h-10" />
+              <Label row="0" col="1" text="{{ title }}" class="font-bold ml-2" />
+              <Label row="1" col="1" text="{{ viewerCount }} watching" class="text-gray-500 ml-2" />
+            </GridLayout>
+          </GridLayout>
+        </Repeater.itemTemplate>
+      </Repeater>
+    </GridLayout>
+  </GridLayout>
+</Page>
